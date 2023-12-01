@@ -10,10 +10,12 @@ window.onload = async function () {
         }).then(data => {
             cities = data;
         });
-    
     addEnterKey();
     addMouseOverLeft();
+    controlCities();
 }
+
+
 
 function addEnterKey(){
     var elementInputCity = document.getElementById('inputCity');
@@ -24,9 +26,43 @@ function addEnterKey(){
             if(elementInputCity.value != "" && cities.includes(elementInputCity.value.toLowerCase())){
                 getWeather(elementInputCity.value.toLowerCase());
             }
-            
+            else if(!cities.includes(elementInputCity.value.toLowerCase())){
+                alert('city not found');
+                
+            }
         }
-    })
+    });
+}
+let index = -1;
+function controlCities(){
+    var elementCityInput = document.getElementById('inputCity');
+    var elementCitiesSearch = document.getElementById('citiesSearch');
+    elementCityInput.addEventListener('keydown',function(event){
+        if(event.key == "ArrowDown"){            
+            if(index < elementCitiesSearch.childElementCount){
+                index++;
+                var selectedChild = elementCitiesSearch.children[index];
+                selectedChild.classList.add('maincontainer-searchmenu-cities-citiesmenu-item-makehover');
+                elementCityInput.value = selectedChild.textContent;
+                if(index != 0){
+                    var childWillClassRemove = elementCitiesSearch.children[index-1];
+                    childWillClassRemove.classList.remove('maincontainer-searchmenu-cities-citiesmenu-item-makehover');    
+                }                                
+            }            
+        }
+        else if(event.key == "ArrowUp"){
+            if(index > 0){
+                index--;
+                var selectedChild = elementCitiesSearch.children[index];
+                selectedChild.classList.add('maincontainer-searchmenu-cities-citiesmenu-item-makehover');
+                elementCityInput.value = selectedChild.textContent;
+                if(index != elementCitiesSearch.childElementCount-1){
+                    var childWillClassRemove = elementCitiesSearch.children[index+1];
+                    childWillClassRemove.classList.remove('maincontainer-searchmenu-cities-citiesmenu-item-makehover');    
+                }                                
+            } 
+        }
+    });
 }
 function addMouseOverLeft(){
     var elementWeatherBox = document.getElementById('weatherBox');
@@ -38,7 +74,7 @@ function addMouseOverLeft(){
         elementWeatherBoxFront.classList.add('maincontainermaincotainer-infomenu-weatherbox-front-setdisplaynone');
         elementWeatherBoxBack.classList.add('maincontainermaincotainer-infomenu-weatherbox-back-setdisplayflex');
     });
-
+    
     elementWeatherBox.addEventListener('mouseleave',function(){
         elementWeatherBox.classList.remove('maincontainer-infomenu-weatherbox-mouseover');
         elementWeatherBox.classList.add('maincontainer-infomenu-weatherbox-mouseleft');
@@ -59,6 +95,7 @@ function showCities(city) {
     var parentElement = document.getElementById('citiesSearch');
     if (city == "") {
         parentElement.classList.add('maincontainer-searchmenu-cities-citiesmenu-setdisplaynone');
+        index = -1;
     }
     else{
         var firstchild = parentElement.children[0];
@@ -94,6 +131,7 @@ function showCities(city) {
 }
 
 async function getWeather(city){
+    index =-1;
     const WeatherURL = new URL(APIURLFirstPart + city + APIURLSecondPart);
     const respond = await fetch(WeatherURL);
     const result = await respond.json();
@@ -136,7 +174,7 @@ function showWeather(city , currentWeather , temperature , humidity , windSpeed,
             break;
         }
         case "Clear" :{
-            elementApp.classList.add('maincontainer-setbackground-sun')
+            elementApp.classList.add('maincontainer-setbackground-sun');
             elementImgOfWeather.src = 'assets/sun.png';
             break;
         }
@@ -146,19 +184,19 @@ function showWeather(city , currentWeather , temperature , humidity , windSpeed,
                 elementApp.classList.add('maincontainer-setbackground-mixclouds');
             }
             else{
-                elementImgOfWeather.src = 'assets/clouds.png'
-                elementApp.classList.add('maincontainer-setbackground-clouds')
+                elementImgOfWeather.src = 'assets/clouds.png';
+                elementApp.classList.add('maincontainer-setbackground-clouds');
             }
             break;     
         }
         case "Snow":{            
             elementImgOfWeather.src = 'assets/snow.png';
-            elementApp.classList.add('maincontainer-setbackground-snow')
+            elementApp.classList.add('maincontainer-setbackground-snow');
             break;
         }
         case "Rain" || "Drizzle" :{
             elementImgOfWeather.src = 'assets/rain.png';
-            elementApp.classList.add('maincontainer-setbackground-rain')
+            elementApp.classList.add('maincontainer-setbackground-rain');
             break;
         }
     }
@@ -167,10 +205,10 @@ function showWeather(city , currentWeather , temperature , humidity , windSpeed,
 }
 function removeClasses(){
     var elementApp = document.getElementById('app');
-    elementApp.classList.remove('maincontainer-setbackground-rain')
-    elementApp.classList.remove('maincontainer-setbackground-snow')
-    elementApp.classList.remove('maincontainer-setbackground-clouds')
-    elementApp.classList.remove('maincontainer-setbackground-mixclouds')
-    elementApp.classList.remove('maincontainer-setbackground-sun')
-    elementApp.classList.remove('maincontainer-setbackground-mist')
+    elementApp.classList.remove('maincontainer-setbackground-rain');
+    elementApp.classList.remove('maincontainer-setbackground-snow');
+    elementApp.classList.remove('maincontainer-setbackground-clouds');
+    elementApp.classList.remove('maincontainer-setbackground-mixclouds');
+    elementApp.classList.remove('maincontainer-setbackground-sun');
+    elementApp.classList.remove('maincontainer-setbackground-mist');
 }
