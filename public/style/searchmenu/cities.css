@@ -1,0 +1,8 @@
+.maincontainer-searchmenu-cities{
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    position: absolute;
+    top: 13%;
+    left: 38.1%;
+}

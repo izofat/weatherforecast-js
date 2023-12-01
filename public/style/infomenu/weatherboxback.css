@@ -1,0 +1,12 @@
+.maincontainer-infomenu-weatherbox-back{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap : 5px;
+    display: none;
+    transform: rotateY(180deg);
+    gap: 40px;
+}
+.maincontainermaincotainer-infomenu-weatherbox-back-setdisplayflex{
+    display: flex;
+}

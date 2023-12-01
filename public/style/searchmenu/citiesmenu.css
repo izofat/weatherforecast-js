@@ -1,0 +1,17 @@
+.maincontainer-searchmenu-cities-citiesmenu{
+    background-color: white;
+    height: auto;
+    width: 360px;
+    border-radius: 14px;
+    max-height: 250px;
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    opacity: 80%;
+}
+.maincontainer-searchmenu-cities-citiesmenu-setdisplaynone{
+    display: none;
+}

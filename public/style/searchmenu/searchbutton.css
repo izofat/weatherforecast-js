@@ -1,0 +1,9 @@
+.maincontainer-searchmenu-searchbutton{
+    border-radius: 35%;
+    width: 60px;
+    height: 50px;
+    background-color: white;
+}
+.maincontainer-searchmenu-searchbutton:hover{
+    background-color: rgb(245, 241, 241);
+}

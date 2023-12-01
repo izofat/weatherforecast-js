@@ -1,0 +1,16 @@
+.maincontainer-infomenu-weatherbox-citynamespan , .maincontainer-infomenu-weatherbox-citytemperaturespan,
+.maincontainer-infomenu-weatherbox-cityweatherspan ,.maincontainer-infomenu-weatherbox-hoverinfospan {
+    font-size: 21px;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    white-space: pre;
+    font-weight: 700;
+}
+.maincontainer-infomenu-weatherbox-cityweatherspan{
+    font-size: 25px;
+    font-weight: 900;
+}
+.maincontainer-infomenu-weatherbox-hoverinfospan{
+    font-size: 15px;
+    font-weight: 500;
+}

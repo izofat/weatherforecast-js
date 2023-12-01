@@ -1,0 +1,12 @@
+.maincontainer-searchmenu-cities-citiesmenu-item{
+    text-align: center;
+    line-height: 50px;
+    font-size: 19px;
+    font-weight: bold;
+    color : black;
+    font-family: 'Times New Roman', Times, serif;
+}
+.maincontainer-searchmenu-cities-citiesmenu-item:hover{
+    background-color: rgb(75, 74, 74) ;
+    color: rgb(255, 255, 255);
+}

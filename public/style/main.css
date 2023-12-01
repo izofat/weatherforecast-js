@@ -1,0 +1,51 @@
+@import url('searchmenu/cities.css');
+@import url('searchmenu/input.css');
+@import url('searchmenu/searchmenu.css');
+@import url('infomenu/infomenu.css');
+@import url('searchmenu/citiesmenu.css');
+@import url('searchmenu/citiesmenuitem.css');
+@import url('searchmenu/searchbutton.css');
+@import url('searchmenu/searchmenuinnerdiv.css');
+@import url('infomenu/weatherbox.css');
+@import url('infomenu/spans.css');
+@import url('infomenu/images.css');
+@import url('infomenu/weatherboxfront.css');
+@import url('infomenu/weatherboxback.css');
+@import url('infomenu/weatherboxbackinner.css');
+
+html , body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    margin :0;
+    background-color: grey;
+    background-size: cover;
+}
+.maincontainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    background-size: cover;
+}
+.maincontainer-setbackground-clouds{
+    background-image: url('../assets/cloudy.jpg');
+}
+.maincontainer-setbackground-sun{
+    background-image: url('../assets/sunny.jpg');
+}
+.maincontainer-setbackground-rain{
+    background-image: url('../assets/rainy.jpg');
+}
+.maincontainer-setbackground-mixclouds{
+    background-image: url('../assets/mix.jpg');
+}
+.maincontainer-setbackground-snow{
+    background-image: url('../assets/snowy.png');
+}
+.maincontainer-setbackground-mist{
+    background-image: url('../assets/misty.jpg');
+}
