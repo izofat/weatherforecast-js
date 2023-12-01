@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+ 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/main.css">
+    <script src="https://kit.fontawesome.com/5132705292.js" crossorigin="anonymous"></script>
+    <title>Vite App</title>
+
+</head>
+
+<body>
+    <div id="app" class="maincontainer">
+        <div class="maincontainer-searchmenu">
+            <div class="maincontainer-searchmenu-innerdiv">
+                <input type="text" class="maincontainer-searchmenu-input" placeholder="Search a city in Turkiye" oninput="showCities(this.value)" id="inputCity">
+                <button id="seachButton" onclick="getWeather(inputCity.value.toLowerCase()),makeAnimationSearchButton()" class="maincontainer-searchmenu-searchbutton"><i class="fa-solid fa-magnifying-glass fa-lg" id="searchIcon"></i></button>            
+            </div>
+            <div class="maincontainer-searchmenu-cities" >
+                <div id="citiesSearch" class="maincontainer-searchmenu-cities-citiesmenu maincontainer-searchmenu-cities-citiesmenu-setdisplaynone">
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="maincontainer-infomenu">
+            <div class="maincontainer-infomenu-weatherbox" id="weatherBox">
+                <div class="maincontainer-infomenu-weatherbox-front" id="weatherBoxFront">
+                    <div>
+                        <span id="cityName" class="maincontainer-infomenu-weatherbox-citynamespan"></span>
+                        <span id="cityTemperature" class="maincontainer-infomenu-weatherbox-citytemperaturespan"></span>
+                    </div>
+                    <div>
+                        <span id="cityWeather" class="maincontainer-infomenu-weatherbox-cityweatherspan"></span>
+                    </div>
+                    <div>
+                        <img src="assets/clouds.png" id="imgOfWeather">
+                    </div>
+                    <div>
+                        <span id="hoverInfo" class="maincontainer-infomenu-weatherbox-hoverinfospan">Hover for more information</span>
+                    </div>
+                </div>
+                <div class="maincontainer-infomenu-weatherbox-back" id="weatherBoxBack">
+                    <div class="maincontainer-infomenu-weatherbox-back-firstline">
+                        <img src="assets/wind.png" class="maincontainer-infomenu-weatherbox-back-windspeed-img">
+                        <div class="maincontainer-infomenu-weatherbox-back-firstline-spandiv">
+                            <span>Wind Speed</span>
+                            <span id="windSpeed"></span>
+                        </div>
+                    </div>
+                    <div class="maincontainer-infomenu-weatherbox-back-secondline">
+                        <img src="assets/humidity.png" class="maincontainer-infomenu-weatherbox-back-humidity-img">
+                        <div class="maincontainer-infomenu-weatherbox-back-secondline-spandiv">
+                            <span>Humidity</span>
+                            <span id="humidity"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script  src="main.js">
+
+    </script>
+</body>
+
+</html>
